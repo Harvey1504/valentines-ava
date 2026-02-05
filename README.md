@@ -180,24 +180,23 @@
         // Sweet quotes
         const QUOTES = [
             "Sleep well, I'll be thinking about you tonight.",
-            "Rest up, I hope we get to know each other better soon.",
             "Sweet dreams, you've got a great day ahead tomorrow.",
             "Good night, I really like getting to know you.",
             "Sleep tight, there's something special about you.",
             "Night, I can't stop thinking about your laugh.",
             "Get some rest, I'd love to chat more with you.",
-            "Sleep well, you're kind of amazing, you know that?",
+            "Sleep well, you are amazing, you know that?",
             "Good night, I genuinely enjoy talking with you.",
             "Rest easy, you're on my mind.",
             "Night, you make everything more interesting.",
             "Sweet dreams, I'm curious to learn more about you.",
             "Sleep peacefully, you deserve all the best.",
-            "Good night, you're making quite an impression on me.",
+            "Good night, I find myself thinking about you all the time.",
             "Rest well, I think I'm getting to like you more each day.",
             "Night, there's something I really like about your vibe.",
             "Sleep tight, I hope we can chat again soon.",
             "Good night, I hope you sleep well.",
-            "Rest up, you've got me really curious about you.",
+            "Rest well, there's something different about you and I love it.",
             "Night, I'm genuinely interested in getting to know you."
         ];
 
