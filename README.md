@@ -93,6 +93,24 @@
             outline-offset: 2px;
         }
 
+        #musicBtn {
+            margin-top: 10px;
+            margin-left: 5px;
+            padding: 10px 15px;
+            font-size: 0.9em;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        #musicBtn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
         #quote {
             opacity: 0;
             transition: opacity 1s ease-in-out;
@@ -150,7 +168,7 @@
 </head>
 <body>
     <div class="message-box">
-        <h1>goodnight</h1>
+        <h1>goodnight Ava</h1>
         <p>
             Sleep well and rest easy tonight.<br>
             Sweet dreams ahead for you.<br>
@@ -158,8 +176,15 @@
             Take care, and we'll talk tomorrow. <span class="heart-beat" aria-label="heart">❤️</span>
         </p>
         <p id="quote" role="status" aria-live="polite"></p>
-        <button id="quoteBtn" aria-label="Generate a new sweet message">New Sweet Message</button>
+        <div>
+            <button id="quoteBtn" aria-label="Generate a new sweet message">New Sweet Message</button>
+            <button id="musicBtn" aria-label="Toggle Taylor Swift music">🎵 Music</button>
+        </div>
     </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="https://p.scdn.co/mp3-preview/1301d77956fcd69375baaf8e81fbb10cbb34e276" type="audio/mpeg">
+    </audio>
 
     <script>
         // Configuration constants
@@ -354,6 +379,34 @@
 
             // Attach event listener to button
             app.quoteBtn.addEventListener('click', generateQuote);
+
+            // Music toggle
+            const musicBtn = document.getElementById('musicBtn');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            let isPlaying = true;
+
+            // Auto-play music on load
+            backgroundMusic.play().catch(err => {
+                console.log('Auto-play blocked:', err);
+                isPlaying = false;
+                musicBtn.textContent = '🎵 Music';
+            });
+            musicBtn.textContent = '⏸️ Music';
+
+            musicBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    musicBtn.textContent = '🎵 Music';
+                    isPlaying = false;
+                } else {
+                    backgroundMusic.play().catch(err => {
+                        console.log('Audio playback failed:', err);
+                        alert('Music playback not available. Try clicking again or check your browser settings.');
+                    });
+                    musicBtn.textContent = '⏸️ Music';
+                    isPlaying = true;
+                }
+            });
 
             // Generate initial quote
             generateQuote();
